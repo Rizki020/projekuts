@@ -1,0 +1,101 @@
+/* Gaya Umum */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Kotak Formulir */
+.box-formulir {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Judul Formulir */
+.box-formulir h2 {
+    text-align: center; /* Memusatkan teks */
+    margin-bottom: 20px; /* Memberi jarak di bawah teks */
+    font-size: 24px; /* Ukuran font judul yang lebih besar */
+}
+
+/* Tabel Formulir */
+.table-form {
+    width: 80%;
+    max-width: 600px;
+    border-collapse: collapse;
+    margin: 20px auto; /* Memberi jarak di atas dan bawah */
+    border: 1px solid #ccc; /* Tambahkan border ke tabel */
+}
+
+.table-form th,
+.table-form td {
+    padding: 10px;
+    text-align: center; /* Memusatkan teks */
+    border: 1px solid #ddd; /* Border untuk sel */
+}
+
+.table-form th {
+    background-color: #007bff; /* Warna latar belakang untuk header tabel */
+    color: white; /* Warna teks header */
+}
+
+/* Kontrol Input */
+.input-control {
+    width: 100%;
+    max-width: 150px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 5px; /* Jarak antara input dan tombol */
+}
+
+/* Tombol Kirim */
+.btn-submit {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: #4cae4c;
+}
+
+/* Tombol Pencarian */
+.btn-submitpencarian {
+    background-color: #007bff; /* Ganti warna tombol pencarian */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px; /* Jarak antara input dan tombol */
+}
+
+.btn-submitpencarian:hover {
+    background-color: #0056b3; /* Warna saat hover */
+}
+
+/* Pemisah Section */
+.section-header {
+    text-align: center;
+    position: relative;
+    margin: 20px 0;
+}
+
+.section-header h4 {
+    margin: 0;
+    font-size: 20px; /* Ukuran font yang lebih besar untuk judul section */
+}
+
+.section-header hr {
+    border: 2px solid #007bff; /* Ganti warna sesuai keinginan */
+    width: 50%;
+    margin: auto;
+}
+
