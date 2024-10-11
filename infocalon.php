@@ -39,8 +39,16 @@ if (isset($_SESSION['last_id'])) {
             </div>
             <div class="card-body text-center">
                 <h5 class="card-title"><?= $row['nama']; ?></h5>
+                
+                <!-- Gambar mahasiswa -->
                 <img src="admin/<?= $row['gambar']; ?>" class="img-fluid mb-3" alt="Foto Calon Mahasiswa" style="max-width: 200px;">
-                <p class="card-text text-left">
+                
+                <!-- Teks dan tombol unduh gambar -->
+                <p><strong>Mohon untuk mengunduh gambar sebelum melanjutkan!</strong></p>
+                <a href="admin/<?= $row['gambar']; ?>" class="btn btn-warning" download>Unduh Gambar</a>
+                
+                <!-- Data mahasiswa lainnya -->
+                <p class="card-text text-left mt-3">
                     <strong>Id:</strong> <?=$row['id']; ?><br>
                     <strong>Tempat Lahir:</strong> <?= $row['tempat_lahir']; ?><br>
                     <strong>Tanggal Lahir:</strong> <?= $row['tanggal_lahir']; ?><br>
@@ -65,3 +73,4 @@ if (isset($_SESSION['last_id'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+

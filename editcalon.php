@@ -67,7 +67,7 @@ $program_studi = $data['program_studi'];
 
         <div class="container mt-4">
         <div class="alert alert-info" role="alert">
-            Kamu harus mengupload <strong>Gambar/Fotomu</strong> jika ingin mengedit atau gambarmu akan hilang.
+            Kamu harus mengupload <strong>Gambar/Fotomu</strong> jika ingin mengedit atau gambarmu akan hilang, dan Pastikan kamu mengunduh gambar setelah memperbarui gambarmu!
             </div>
             <h3 class="text-center">Informasi mu</h3>
             <form action="editaksi.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">

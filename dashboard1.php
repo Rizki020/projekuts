@@ -58,6 +58,8 @@ $result = $stmt->get_result();
                         <div class="col-md-4 mb-4">
                             <div class="info-box">
                                 <img src="admin/<?= $row['gambar']; ?>" class="img-fluid mb-3" alt="Foto Calon Mahasiswa" style="max-width: 200px;">
+                                <a href="admin/<?= $row['gambar']; ?>" class="btn btn-warning" download>Unduh Gambar</a>
+                                <p></p>
                                 <h5 class="card-title">Id Pengguna: <?= htmlspecialchars($row['id']); ?></h5>
                                 <div class="info-row">
                                     <span><strong>Nama:</strong> <?= htmlspecialchars($row['nama']); ?></span>
