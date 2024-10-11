@@ -7,17 +7,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit();
 }
 
-// Ambil nama dan id dari sesi
+// Ambil nama dan nopendaftaran dari sesi
 $nama = $_SESSION['nama'];
-$id_user = $_SESSION['username']; // Mengambil ID pengguna dari sesi
+$nopendaftaran = $_SESSION['username']; // Mengambil nopendaftaran dari sesi
 
-// Debugging: tampilkan ID pengguna
-echo "ID Pengguna: " . htmlspecialchars($id_user) . "<br>"; // Debugging ID
+// Debugging: tampilkan nomor pendaftaran pengguna
+echo "Nomor Pendaftaran Pengguna: " . htmlspecialchars($nopendaftaran) . "<br>"; // Debugging nopendaftaran
 
-// Query untuk mengambil data calon mahasiswa berdasarkan ID pengguna
-$sql = "SELECT * FROM CALONMAHASISWA WHERE id = ?";
+// Query untuk mengambil data calon mahasiswa berdasarkan nopendaftaran
+$sql = "SELECT * FROM CALONMAHASISWA WHERE nopendaftaran = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $id_user); // Pastikan tipe data sesuai
+$stmt->bind_param("i", $nopendaftaran); // Pastikan tipe data sesuai (integer untuk nopendaftaran)
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -60,7 +60,7 @@ $result = $stmt->get_result();
                                 <img src="admin/<?= $row['gambar']; ?>" class="img-fluid mb-3" alt="Foto Calon Mahasiswa" style="max-width: 200px;">
                                 <a href="admin/<?= $row['gambar']; ?>" class="btn btn-warning" download>Unduh Gambar</a>
                                 <p></p>
-                                <h5 class="card-title">Id Pengguna: <?= htmlspecialchars($row['id']); ?></h5>
+                                <h5 class="card-title">Nomor Pendaftaran: <?= htmlspecialchars($row['nopendaftaran']); ?></h5>
                                 <div class="info-row">
                                     <span><strong>Nama:</strong> <?= htmlspecialchars($row['nama']); ?></span>
                                 </div>

@@ -2,12 +2,12 @@
 session_start();
 include 'koneksi.php';
 
-// Get the last inserted ID from session
-if (isset($_SESSION['last_id'])) {
-    $last_id = $_SESSION['last_id'];
+// Get the last inserted Nopendaftaran from session
+if (isset($_SESSION['last_nopendaftaran'])) {
+    $last_nopendaftaran = $_SESSION['last_nopendaftaran'];
 
     // Fetch the data for the last inserted record
-    $query = "SELECT * FROM CALONMAHASISWA WHERE id = '$last_id'";
+    $query = "SELECT * FROM CALONMAHASISWA WHERE nopendaftaran = '$last_nopendaftaran'";
     $result = mysqli_query($conn, $query);
     
     if ($result && mysqli_num_rows($result) > 0) {
@@ -49,7 +49,7 @@ if (isset($_SESSION['last_id'])) {
                 
                 <!-- Data mahasiswa lainnya -->
                 <p class="card-text text-left mt-3">
-                    <strong>Id:</strong> <?=$row['id']; ?><br>
+                    <strong>No Pendaftaran:</strong> <?=$row['nopendaftaran']; ?><br>
                     <strong>Tempat Lahir:</strong> <?= $row['tempat_lahir']; ?><br>
                     <strong>Tanggal Lahir:</strong> <?= $row['tanggal_lahir']; ?><br>
                     <strong>Alamat:</strong> <?= $row['alamat']; ?><br>
@@ -73,4 +73,3 @@ if (isset($_SESSION['last_id'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-

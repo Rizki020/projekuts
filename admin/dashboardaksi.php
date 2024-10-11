@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id_placeholders = rtrim(str_repeat('?,', count($ids)), ','); // Membuat placeholder
             
             // Persiapkan query untuk menghapus dari CALONMAHASISWA
-            $sql_delete_mahasiswa = "DELETE FROM CALONMAHASISWA WHERE id IN ($id_placeholders)";
+            $sql_delete_mahasiswa = "DELETE FROM CALONMAHASISWA WHERE nopendaftaran IN ($id_placeholders)";
             $stmt_delete_mahasiswa = $conn->prepare($sql_delete_mahasiswa);
             $stmt_delete_mahasiswa->bind_param(str_repeat('s', count($ids)), ...$ids); // Bind parameter sesuai dengan jumlah ID
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Menggunakan prepared statement untuk menghindari SQL Injection
             $id_placeholders = rtrim(str_repeat('?,', count($ids)), ','); // Membuat placeholder
-            $sql_update = "UPDATE CALONMAHASISWA SET status = ? WHERE id IN ($id_placeholders)";
+            $sql_update = "UPDATE CALONMAHASISWA SET status = ? WHERE nopendaftaran IN ($id_placeholders)";
 
             $stmt_update = $conn->prepare($sql_update);
             $stmt_update->bind_param('s' . str_repeat('s', count($ids)), $status, ...$ids); // Bind status dan ID

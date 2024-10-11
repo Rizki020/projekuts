@@ -143,8 +143,8 @@ $total_pages = ceil($total_records / $records_per_page); // Menghitung jumlah ha
 
                                             // Menampilkan baris data dalam tabel
                                             echo "<tr>
-                                                <td><input type='checkbox' name='selected_ids[]' value='{$row['id']}'></td>
-                                                <td>{$row['id']}</td>
+                                                <td><input type='checkbox' name='selected_ids[]' value='{$row['nopendaftaran']}'></td>
+                                                <td>{$row['nopendaftaran']}</td>
                                                 <td><img src='" . htmlspecialchars($row['gambar']) . "' width='150' /></td>
                                                 <td>{$row['nama']}</td>
                                                 <td>{$row['tempat_lahir']}</td>

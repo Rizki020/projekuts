@@ -1,5 +1,5 @@
 CREATE TABLE CALONMAHASISWA (
-    id INT(11) PRIMARY KEY,
+    nopendaftaran INT(11) PRIMARY KEY,
     gambar VARCHAR(255),
     nama VARCHAR(100) NOT NULL,
     tempat_lahir VARCHAR(100) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE CALONMAHASISWA (
     status ENUM('Lulus', 'TidakLulus', 'Belum Ditentukan') NOT NULL DEFAULT 'Belum Ditentukan'
 );
 
-INSERT INTO CALONMAHASISWA (id, gambar, nama, tempat_lahir, tanggal_lahir, asal_sma, alamat, jenis_kelamin, tahun_tamat, PASSWORD, nama_orangtua, jurusan, program_studi, status) 
+INSERT INTO CALONMAHASISWA (nopendaftaran, gambar, nama, tempat_lahir, tanggal_lahir, asal_sma, alamat, jenis_kelamin, tahun_tamat, PASSWORD, nama_orangtua, jurusan, program_studi, status) 
 VALUES
 ('2024001', 'images/Agnes.jpg', 'Agnes', 'Yogyakarta', '2004-04-20', 'SMA Negeri 2 Yogyakarta', 'Gg. KH. Zamhari 86-15, Ngupasan, Kec. Gondomanan', 'perempuan', 2022, '1234', 'Sri Wahyuni', 'Administrasi Bisnis', 'Administrasi Bisnis', 'Belum Ditentukan'),
 ('2024002', 'images/Centis.jpg', 'Centis', 'Banten', '2005-02-08', 'SMA Negeri 4 Kota Serang', 'Sumurpecung, Kec. Serang, Kota Serang', 'perempuan', 2022, '1234', 'Budiono', 'Teknik Komputer dan Informatika', 'Teknik Komputer', 'Belum Ditentukan'),

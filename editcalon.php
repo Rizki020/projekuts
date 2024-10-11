@@ -8,14 +8,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit();
 }
 
-// Ambil id_user dan password dari sesi
-$id_user = $_SESSION['username'];
-
+// Ambil nopendaftaran dan password dari sesi
+$nopendaftaran = $_SESSION['username']; // Mengambil nopendaftaran dari sesi
 
 // Ambil data calon mahasiswa dari database
-$sql = "SELECT * FROM CALONMAHASISWA WHERE id = ?";
+$sql = "SELECT * FROM CALONMAHASISWA WHERE nopendaftaran = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $id_user);
+$stmt->bind_param("s", $nopendaftaran); // Mengganti id dengan nopendaftaran
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -87,18 +86,15 @@ $program_studi = $data['program_studi'];
                 </div>
                 <div class="form-group">
                     <label for="nama">Nama:</label>
-                    <input type="text" name="nama" class="form-control" value="<?= htmlspecialchars($nama); ?>"
-                        required>
+                    <input type="text" name="nama" class="form-control" value="<?= htmlspecialchars($nama); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="tempat_lahir">Tempat Lahir:</label>
-                    <input type="text" name="tempat_lahir" class="form-control"
-                        value="<?= htmlspecialchars($tempat_lahir); ?>" required>
+                    <input type="text" name="tempat_lahir" class="form-control" value="<?= htmlspecialchars($tempat_lahir); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="tanggal_lahir">Tanggal Lahir:</label>
-                    <input type="date" name="tanggal_lahir" class="form-control"
-                        value="<?= htmlspecialchars($tanggal_lahir); ?>" required>
+                    <input type="date" name="tanggal_lahir" class="form-control" value="<?= htmlspecialchars($tanggal_lahir); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat:</label>
@@ -106,56 +102,44 @@ $program_studi = $data['program_studi'];
                 </div>
                 <div class="form-group">
                     <label for="asal_sma">Asal SMA:</label>
-                    <input type="text" name="asal_sma" class="form-control" value="<?= htmlspecialchars($asal_sma); ?>"
-                        required>
+                    <input type="text" name="asal_sma" class="form-control" value="<?= htmlspecialchars($asal_sma); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="jenis_kelamin">Jenis Kelamin:</label>
                     <select name="jenis_kelamin" class="form-control" required>
-                        <option value="laki-laki" <?= $jenis_kelamin == 'laki-laki' ? 'selected' : ''; ?>>Laki-laki
-                        </option>
-                        <option value="perempuan" <?= $jenis_kelamin == 'perempuan' ? 'selected' : ''; ?>>Perempuan
-                        </option>
+                        <option value="laki-laki" <?= $jenis_kelamin == 'laki-laki' ? 'selected' : ''; ?>>Laki-laki</option>
+                        <option value="perempuan" <?= $jenis_kelamin == 'perempuan' ? 'selected' : ''; ?>>Perempuan</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="tahun_tamat">Tahun Tamat:</label>
-                    <input type="number" name="tahun_tamat" class="form-control"
-                        value="<?= htmlspecialchars($tahun_tamat); ?>" required>
+                    <input type="number" name="tahun_tamat" class="form-control" value="<?= htmlspecialchars($tahun_tamat); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="nama_orangtua">Nama Orang Tua:</label>
-                    <input type="text" name="nama_orangtua" class="form-control"
-                        value="<?= htmlspecialchars($nama_orangtua); ?>" required>
+                    <input type="text" name="nama_orangtua" class="form-control" value="<?= htmlspecialchars($nama_orangtua); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="jurusan">Jurusan:</label>
                     <select name="jurusan" class="form-control" required>
                         <option value="Teknik Komputer dan Informatika" <?= $jurusan == 'Teknik Komputer dan Informatika' ? 'selected' : ''; ?>>Teknik Komputer dan Informatika</option>
-                        <option value="Administrasi Bisnis" <?= $jurusan == 'Administrasi Bisnis' ? 'selected' : ''; ?>>
-                            Administrasi Bisnis</option>
-                        <option value="Teknik Sipil" <?= $jurusan == 'Teknik Sipil' ? 'selected' : ''; ?>>Teknik Sipil
-                        </option>
-                        <option value="Teknik Mesin" <?= $jurusan == 'Teknik Mesin' ? 'selected' : ''; ?>>Teknik Mesin
-                        </option>
+                        <option value="Administrasi Bisnis" <?= $jurusan == 'Administrasi Bisnis' ? 'selected' : ''; ?>>Administrasi Bisnis</option>
+                        <option value="Teknik Sipil" <?= $jurusan == 'Teknik Sipil' ? 'selected' : ''; ?>>Teknik Sipil</option>
+                        <option value="Teknik Mesin" <?= $jurusan == 'Teknik Mesin' ? 'selected' : ''; ?>>Teknik Mesin</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="program_studi">Program Studi:</label>
                     <select name="program_studi" class="form-control" required>
-                        <option value="Teknik Komputer" <?= $program_studi == 'Teknik Komputer' ? 'selected' : ''; ?>>
-                            Teknik Komputer</option>
-                        <option value="Teknik Sipil" <?= $program_studi == 'Teknik Sipil' ? 'selected' : ''; ?>>Teknik
-                            Sipil</option>
+                        <option value="Teknik Komputer" <?= $program_studi == 'Teknik Komputer' ? 'selected' : ''; ?>>Teknik Komputer</option>
+                        <option value="Teknik Sipil" <?= $program_studi == 'Teknik Sipil' ? 'selected' : ''; ?>>Teknik Sipil</option>
                         <option value="Administrasi Bisnis" <?= $program_studi == 'Administrasi Bisnis' ? 'selected' : ''; ?>>Administrasi Bisnis</option>
-                        <option value="Teknik Mesin" <?= $program_studi == 'Teknik Mesin' ? 'selected' : ''; ?>>Teknik
-                            Mesin</option>
+                        <option value="Teknik Mesin" <?= $program_studi == 'Teknik Mesin' ? 'selected' : ''; ?>>Teknik Mesin</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" class="form-control"
-                        placeholder="Masukkan password baru (kosongkan jika tidak ingin mengganti)">
+                    <input type="password" name="password" class="form-control" placeholder="Masukkan password baru (kosongkan jika tidak ingin mengganti)">
                     <input type="hidden" name="old_password" value="<?= htmlspecialchars($data['PASSWORD']); ?>">
                 </div>
 

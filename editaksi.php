@@ -8,13 +8,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit();
 }
 
-// Ambil id_user dari sesi
-$id_user = $_SESSION['username'];
+// Ambil nopendaftaran dari sesi
+$nopendaftaran = $_SESSION['username'];
 
 // Ambil data calon mahasiswa dari database
-$sql = "SELECT * FROM CALONMAHASISWA WHERE id = ?";
+$sql = "SELECT * FROM CALONMAHASISWA WHERE nopendaftaran = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $id_user);
+$stmt->bind_param("s", $nopendaftaran);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -96,7 +96,7 @@ $update_sql = "UPDATE CALONMAHASISWA SET
     jurusan = ?, 
     program_studi = ?, 
     password = ? 
-    WHERE id = ?";
+    WHERE nopendaftaran = ?"; // Mengganti id dengan nopendaftaran
 
 $stmt = $conn->prepare($update_sql);
 $stmt->bind_param(
@@ -113,7 +113,7 @@ $stmt->bind_param(
     $jurusan,
     $program_studi,
     $newPassword,
-    $id_user
+    $nopendaftaran // Mengganti id_user dengan nopendaftaran
 );
 
 if ($stmt->execute()) {

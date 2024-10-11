@@ -83,25 +83,25 @@ if (empty($gambar)) {
     exit;
 }
 
-// Mengambil ID terakhir dari tabel
-$result = mysqli_query($conn, "SELECT id FROM CALONMAHASISWA ORDER BY id DESC LIMIT 1");
+// Mengambil nopendaftaran terakhir dari tabel
+$result = mysqli_query($conn, "SELECT nopendaftaran FROM CALONMAHASISWA ORDER BY nopendaftaran DESC LIMIT 1");
 $row = mysqli_fetch_assoc($result);
 
-// Jika ada ID sebelumnya, lanjutkan dari sana, jika tidak mulai dari 2024001
+// Jika ada nopendaftaran sebelumnya, lanjutkan dari sana, jika tidak mulai dari 2024001
 if ($row) {
-    $last_id = (int)$row['id'];
-    $new_id = $last_id + 1;
+    $last_nopendaftaran = (int)$row['nopendaftaran'];
+    $new_nopendaftaran = $last_nopendaftaran + 1;
 } else {
-    $new_id = 2024001; // Memulai dari 2024001
+    $new_nopendaftaran = 2024001; // Memulai dari 2024001
 }
 
 $password = '1234'; // Password default
 
 // Melakukan penyimpanan ke database
-$insert = mysqli_query($conn, "INSERT INTO CALONMAHASISWA (id, gambar, nama, tempat_lahir, tanggal_lahir, alamat, asal_sma, jenis_kelamin, tahun_tamat, password, nama_orangtua, jurusan, program_studi) VALUES ('$new_id', '$gambar', '$nama', '$tempat_lahir', '$tanggal_lahir', '$alamat', '$asal_sma', '$jenis_kelamin', '$tahun_tamat', '$password', '$nama_orangtua', '$jurusan', '$program_studi')");
+$insert = mysqli_query($conn, "INSERT INTO CALONMAHASISWA (nopendaftaran, gambar, nama, tempat_lahir, tanggal_lahir, alamat, asal_sma, jenis_kelamin, tahun_tamat, password, nama_orangtua, jurusan, program_studi) VALUES ('$new_nopendaftaran', '$gambar', '$nama', '$tempat_lahir', '$tanggal_lahir', '$alamat', '$asal_sma', '$jenis_kelamin', '$tahun_tamat', '$password', '$nama_orangtua', '$jurusan', '$program_studi')");
 
 if ($insert) {
-    $_SESSION['last_id'] = $new_id; // Menyimpan id yang baru
+    $_SESSION['last_nopendaftaran'] = $new_nopendaftaran; // Menyimpan nopendaftaran yang baru
     echo "<script>alert('Berhasil mendaftar!'); window.location.href='infocalon.php';</script>";
 } else {
     echo "<script>alert('Data gagal disimpan.'); window.history.back();</script>";
