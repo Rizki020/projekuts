@@ -75,7 +75,7 @@ $total_pages = ceil($total_records / $records_per_page); // Menghitung jumlah ha
 <body>
     <!-- Sidebar untuk navigasi -->
     <div class="sidebar">
-        <h2>Halo, <?php echo htmlspecialchars($_SESSION['NAMA']); ?>!</h2>
+        <h2>Admin Dashboard</h2>
         <a href="statistik.php"><i class="fas fa-tachometer-alt"></i> Statistik Calon Mahasiswa</a>
         <a href="dashboard.php"><i class="fas fa-info-circle"></i> Daftar Calon Mahasiswa</a>
         <a href="logout.php" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>

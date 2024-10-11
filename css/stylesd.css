@@ -1,0 +1,105 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0; 
+}
+
+.sidebar {
+    position: fixed;
+    height: 100%;
+    width: 250px;
+    z-index: 1; /* Pastikan sidebar di bawah navbar */
+    top: 0;
+    left: -250px; /* Awalnya tersembunyi */
+    background-color: #343a40; 
+    transition: 0.3s; /* Animasi untuk transisi */
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white; /* Warna teks */
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757; /* Warna saat hover */
+}
+
+#main {
+    transition: margin-left 0.3s; /* Animasi saat sidebar terbuka */
+    padding: 0; 
+    margin-top: 60px; /* Memberikan margin atas untuk menghindari navbar yang menutupi konten */
+}
+
+.navbar {
+    position: fixed; /* Posisi tetap */
+    top: 0; /* Menempel di atas */
+    left: 0; /* Menempel di pinggir kiri */
+    width: 100%; 
+    z-index: 2; /* Menempatkan navbar di atas sidebar */
+    background-color: #007bff; /* Warna navbar */
+    transition: margin-left 0.3s;
+}
+
+.navbar h2 {
+    font-size: calc(1.5em + 1vw); /* Responsif berdasarkan ukuran viewport */
+    margin: 0; /* Menghapus margin default */
+    color: white; /* Warna teks */
+}
+
+.navbar .openbtn {
+    color: white; /* Warna teks tombol */
+    background: none; /* Tanpa background */
+    border: none; /* Tanpa border */
+    font-size: 30px;
+}
+
+.openbtn:hover {
+    color: #f8f9fa; /* Warna saat hover */
+}
+
+.container {
+    margin-top: 70px; /* Memberikan margin atas untuk menghindari navbar yang menutupi konten */
+    transition: margin-left 0.3s;
+}
+
+#main h2 {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    max-width: calc(100% - 50px); /* Adjust width based on button size */
+    font-size: 1.5rem; /* Font size for larger screens */
+}
+
+@media (max-width: 768px) {
+    #main h2 {
+        font-size: 1.2rem; /* Smaller font size for mobile */
+    }
+}
+
+/* Gaya untuk informasi calon mahasiswa */
+.info-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin: 20px 0;
+    padding: 15px;
+    text-align: center;
+}
+
+.info-box:hover {
+    transform: scale(1.05);
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: left; /* Pastikan teks diatur rata kiri */
+}
+

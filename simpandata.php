@@ -95,11 +95,14 @@ if ($row) {
     $new_id = 2024001; // Memulai dari 2024001
 }
 
+$password = '1234'; // Password default
+
 // Melakukan penyimpanan ke database
-$insert = mysqli_query($conn, "INSERT INTO CALONMAHASISWA (id, gambar, nama, tempat_lahir, tanggal_lahir, alamat, asal_sma, jenis_kelamin, tahun_tamat, nama_orangtua, jurusan, program_studi) VALUES ('$new_id', '$gambar', '$nama', '$tempat_lahir', '$tanggal_lahir', '$alamat', '$asal_sma', '$jenis_kelamin', '$tahun_tamat', '$nama_orangtua', '$jurusan', '$program_studi')");
+$insert = mysqli_query($conn, "INSERT INTO CALONMAHASISWA (id, gambar, nama, tempat_lahir, tanggal_lahir, alamat, asal_sma, jenis_kelamin, tahun_tamat, password, nama_orangtua, jurusan, program_studi) VALUES ('$new_id', '$gambar', '$nama', '$tempat_lahir', '$tanggal_lahir', '$alamat', '$asal_sma', '$jenis_kelamin', '$tahun_tamat', '$password', '$nama_orangtua', '$jurusan', '$program_studi')");
 
 if ($insert) {
-    echo "<script>alert('Berhasil mendaftar!'); window.location.href='index.php';</script>";
+    $_SESSION['last_id'] = $new_id; // Menyimpan id yang baru
+    echo "<script>alert('Berhasil mendaftar!'); window.location.href='infocalon.php';</script>";
 } else {
     echo "<script>alert('Data gagal disimpan.'); window.history.back();</script>";
 }

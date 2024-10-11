@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendaftaran</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="card-header text-center bg-info text-white">
                         <h2>Formulir Pendaftaran</h2>
-                        <a href="preview.php" class="btn btn-outline-light mt-2">Lihat status</a>
+                        <a href="login.php" class="btn btn-outline-light mt-2">Login Jika Telah Mendaftar</a>
                     </div>
                     <div class="card-body">
                         <!-- Gabungkan semua bagian dalam satu form -->
