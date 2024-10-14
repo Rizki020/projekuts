@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="btn-submit">Login</button>
             <?php if (isset($error)) echo "<p>$error</p>"; ?>
         </form>
+        <p>Belum mendaftar? <a href="index.php">Daftar di sini</a></p>
     </div>
 </body>
 </html>
